@@ -1,0 +1,24 @@
+<div class="login-div" nz-row nzJustify="center" nzAlign="middle">
+    <nz-card [nzBordered]="false" [nzHoverable]="true" class = "login-card">
+        <div nz-row nzJustify="center" nzAlign="middle">
+            <div nz-col nzSpan="24">
+                <h2 style="text-align: center;">Login</h2>
+                <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+                    <nz-form-item>
+                        <nz-form-control [nzHasFeedback]="true">
+                            <input nz-input formControlName="username" placeholder="Username" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control [nzHasFeedback]="true">
+                            <input nz-input formControlName="password" type="password" placeholder="Password" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <div nz-row nzJustify="center">
+                        <button nz-button nzType="primary" type="submit" nz-block>Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nz-card>
+</div>

@@ -1,0 +1,31 @@
+<div class="content-main">
+    <ng-container *ngIf="content && content.length > 0; else noContent">
+        <ul class="content-container" nz-row nzGutter="16">
+            <li nz-col [nzXs]="24" [nzMd]="12" [nzLg]="6" *ngFor="let item of content">
+                <nz-card [nzBordered]="false" [nzHoverable]="true">
+                    <div nz-row nzAlign="middle" nzJustify="center">
+                        <div nz-col nzSpan="24">
+                            <img [src]="item.url" alt="{{ item.name }}">
+                        </div>
+                        <div nz-col nzSpan="24" class="content-elements">
+                            <h3>{{ item.name }}</h3>
+                            <p>${{ item.price }}</p>
+                        </div>
+                        <div nz-col nzSpan="24" class="content-elements">
+                            <button nz-button [nzSize]="'small'" nzType="primary" (click)="addToCart(item)">Add to
+                                Cart</button>
+                            <nz-input-number [nzSize]="'small'" [(ngModel)]="item.quantity" [nzMin]="1"
+                                [nzMax]="100" [nzStep]="1"></nz-input-number>
+                        </div>
+                    </div>
+                </nz-card>
+            </li>
+        </ul>
+    </ng-container>
+
+    <ng-template #noContent>
+        <div class="content-no">
+            <nz-empty></nz-empty>
+        </div>
+    </ng-template>
+</div>

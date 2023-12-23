@@ -1,0 +1,28 @@
+.sidebar-content {
+    height: calc(100vh - 64px);
+    /* Adjust the value accordingly, considering the header height here 64px */
+    overflow: auto;
+}
+
+.sidebar-content::-webkit-scrollbar {
+    width: 5px;
+    /* Adjust the width as needed */
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+    background-color: var(--c-background-color-card);
+    /* Adjust the color as needed */
+}
+
+.avatar {
+    background-color: white;
+    font-weight: bold;
+    color: var(--c-background-color-navbar);
+}
+
+/* Media query for screens with a maximum width of 767px (typical for small screens) */
+// @media (max-width: 767px) {
+//     .ant-menu-item {
+//         padding-left: 24px;
+//     }
+// }

@@ -1,0 +1,45 @@
+<div class="cart-main">
+    <div class="cart-upper">
+        <h3 style="font-weight: bold;">Shopping Cart</h3>
+        <span nz-icon nzType="delete" [nzTheme]="'twotone'" [nzTwotoneColor]="'#FF0000'"
+            style="cursor: pointer; font-size: medium;" (click)="clearAll()"></span>
+    </div>
+    <nz-card [nzBordered]="false" [nzHoverable]="true">
+        <nz-table [nzData]="cart" [nzScroll]="{ x: 'max-content', y: '200px' }" [nzFrontPagination]="false"
+            [nzTotal]="totalItems" [nzShowPagination]="true" [nzPageSizeOptions]="[5, 10, 15, 20, 25]"
+            [nzShowSizeChanger]="true" [nzPageIndex]="pageIndex" [nzPageSize]="pageSize"
+            (nzPageIndexChange)="onPageIndexChange($event)" (nzPageSizeChange)="onPageSizeChange($event)"
+            (nzCurrentPageDataChange)="onCurrentPageDataChange($event)">
+            <thead>
+                <tr>
+                    <th nzWidth="100px" [nzAlign]="'center'">Image</th>
+                    <th nzWidth="100px" [nzAlign]="'center'">Name</th>
+                    <th nzWidth="100px" [nzAlign]="'center'">Quantity</th>
+                    <th nzWidth="100px" [nzAlign]="'center'">Price</th>
+                    <th nzWidth="100px" [nzAlign]="'center'">Sub Total</th>
+                    <th nzWidth="100px" [nzAlign]="'center'">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of cart">
+                    <td [nzAlign]="'center'"><img [src]="item.url" alt="{{ item.name }}" style="max-width: 100px;"></td>
+                    <td [nzAlign]="'center'">{{ item.name }}</td>
+                    <td [nzAlign]="'center'">
+                        <nz-input-number [nzSize]="'small'" [(ngModel)]="item.quantity" [nzMin]="1" [nzMax]="100"
+                            [nzStep]="1"></nz-input-number>
+                    </td>
+                    <td [nzAlign]="'center'">${{ item.price }}</td>
+                    <td [nzAlign]="'center'">${{ item.quantity * item.price }}</td>
+                    <td [nzAlign]="'center'">
+                        <span nz-icon nzType="delete" nzTheme="outline" style="cursor: pointer; font-size: medium;"
+                            (click)="clearItem(item)"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </nz-table>
+    </nz-card>
+    <div class='cart-actions'>
+        <button nz-button [nzSize]="'default'" nzType="primary" (click)="Checkout()">Checkout</button>
+        <h3 style="padding-left: 10px;">Total: ${{ getTotal() }}</h3>
+    </div>
+</div>

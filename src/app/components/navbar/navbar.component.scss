@@ -1,0 +1,22 @@
+.main {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.main-first {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.main-second > nz-avatar{
+   margin-left: 10px;
+   cursor: pointer;
+}
+
+.navbar-badge{
+    color: red;
+    font-weight: bold;
+}

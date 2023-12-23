@@ -1,0 +1,49 @@
+.content-main {
+    padding: 20px;
+    height: calc(100vh - 64px);
+    overflow: auto;
+}
+
+.content-main::-webkit-scrollbar {
+    width: 5px;
+    /* Adjust the width as needed */
+}
+
+.content-main::-webkit-scrollbar-thumb {
+    background-color: var(--c-background-color-card);
+    /* Adjust the color as needed */
+}
+
+.content-no {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 128px);
+}
+
+li {
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+.content-container nz-card .ant-card-body {
+    padding: 0;
+}
+
+
+.content-elements {
+    display: flex;
+    justify-content: space-between;
+}
+
+img {
+    width: 100%;
+    /* Ensure the image takes 100% of the container width */
+    height: auto;
+    /* Maintain the image's aspect ratio */
+    object-fit: cover;
+    /* Ensure the image covers the entire container */
+    border-radius: 5px;
+    max-width: 100%;
+    max-height: 100px;
+}

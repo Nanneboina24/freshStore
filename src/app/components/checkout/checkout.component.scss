@@ -1,0 +1,36 @@
+.checkout-main {
+    padding: 20px;
+    height: calc(100vh - 64px);
+    overflow: auto;
+}
+
+.checkout-main::-webkit-scrollbar {
+    width: 5px;
+    /* Adjust the width as needed */
+}
+
+.checkout-main::-webkit-scrollbar-thumb {
+    background-color: var(--c-background-color-card);
+    /* Adjust the color as needed */
+}
+
+
+nz-card {
+    border-radius: 10px;
+}
+
+li {
+    margin-bottom: 16px;
+}
+
+.checkout-summary {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px;
+}
+
+.checkout-status{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

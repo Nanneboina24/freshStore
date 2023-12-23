@@ -1,0 +1,27 @@
+.cart-main {
+    padding: 20px;
+    height: calc(100vh - 64px);
+}
+
+nz-card {
+    border-radius: 10px;
+}
+
+nz-table {
+    border-radius: 10px;
+}
+
+img {
+    border-radius: 5px;
+}
+
+.cart-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.cart-upper{
+    display: flex;
+    justify-content: space-between;
+}

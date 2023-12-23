@@ -1,0 +1,35 @@
+<div class="main">
+
+    <div class="main-first" routerLink="/home">
+        <nz-avatar
+            nzSrc="https://images.pexels.com/photos/15763953/pexels-photo-15763953/free-photo-of-single-fresh-strawberry.jpeg">
+        </nz-avatar>
+        <h3 style="margin:5px 5px; font-weight: bold;">Fresh Store</h3>
+    </div>
+
+    <div class="main-second">
+
+        <nz-avatar nzSrc="https://images.pexels.com/photos/953864/pexels-photo-953864.jpeg"
+            (click)="navigateToCart()"></nz-avatar>
+        <nz-badge class="navbar-badge">
+            <p>{{cart.length}}</p>
+        </nz-badge>
+
+
+        <nz-avatar nzSrc="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg"
+            nz-popover [nzPopoverContent]="Content" [nzPopoverTitle]="userDataString?.username"
+            nzPopoverPlacement="bottomRight">
+        </nz-avatar>
+
+        <ng-template #Content>
+            <ul nz-menu>
+                <li nz-menu-item (click)="logout()">
+                    <i nz-icon nzType="logout"></i> Logout
+                </li>
+
+            </ul>
+        </ng-template>
+    </div>
+
+
+</div>

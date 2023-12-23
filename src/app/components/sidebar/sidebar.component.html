@@ -1,0 +1,19 @@
+<div class="sidebar-content">
+    <ul nz-menu nzMode="inline">
+        <li *ngFor="let category of getCategoryKeys()" nz-submenu [nzTitle]="titleFormat">
+            <ng-template #titleFormat>
+                <nz-avatar [nzText]="category[0]+'S'" nzSize="small" [nzShape]="'square'" class="avatar"></nz-avatar>
+                <span style="padding-left: 5px;">{{category}}</span>
+            </ng-template>
+            <ul>
+                <li nz-menu-item [style.padding-left]="padding" *ngFor="let item of store[category]"
+                    (click)="navigateToRoute(category, item.name)">
+                    <div>
+                        <nz-avatar [nzSrc]="item.logo" nzSize="small"></nz-avatar>
+                        {{ item.name }}
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

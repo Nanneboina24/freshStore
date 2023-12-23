@@ -1,0 +1,19 @@
+.header {
+    padding: 0;
+    background: var(--c-background-color-navbar);
+}
+
+.sider {
+    height: calc(100vh - 64px);
+
+}
+
+::ng-deep .ant-layout-sider-light .ant-layout-sider-trigger {
+    color: black;
+    background: var(--c-background-color-card);
+}
+
+::ng-deep .ant-layout-sider-light:hover .ant-layout-sider-trigger:hover {
+    color: var(--c-background-color-card);
+    background: black
+}

@@ -1,1 +1,71 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+
+}
+
+html,
+body {
+    height: 100%;
+    font-family: Roboto, "Helvetica Neue", sans-serif,
+}
+
+:root {
+    --c-background-color-card: rgb(247, 247, 232);
+    --c-background-color-navbar: rgb(233, 233, 149);
+    --c-background-color-sidebar: white;
+}
+
+::selection {
+    color: black;
+    background: var(--c-background-color-card);
+}
+
+
+//Components Overide
+//*Button
+.ant-btn,
+.ant-btn-primary {
+    color: black;
+    border-color: var(--c-background-color-card);
+    background: var(--c-background-color-card);
+    border-radius: 5px;
+}
+
+.ant-btn-primary:hover {
+    color: var(--c-background-color-card);
+    border-color: black;
+    background: black;
+}
+
+//* Menu
+.ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+.ant-menu-light .ant-menu-submenu-active,
+.ant-menu-light .ant-menu-submenu-title:hover,
+.ant-menu-submenu-selected,
+.ant-menu-submenu-open {
+    color: black;
+    background-color: var(--c-background-color-card);
+}
+
+.ant-menu-light .ant-menu-item:hover,
+.ant-menu-light .ant-menu-item-active {
+    font-weight: bold;
+    color: black;
+    background-color: var(--c-background-color-card);
+}
+
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: var(--c-background-color-card);
+    font-weight: bold;
+    color: black;
+}
+
+.ant-menu-inline .ant-menu-item::after {
+    border-right: 4px solid var(--c-background-color-navbar);
+}

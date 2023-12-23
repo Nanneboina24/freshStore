@@ -1,0 +1,53 @@
+<div class="checkout-main">
+    <div>
+        <h3 style="font-weight: bold;">Shipping</h3>
+    </div>
+    <ul class="checkout-container" nz-row nzGutter="16">
+        <li nz-col [nzXs]="24" [nzMd]="12">
+            <nz-card [nzBordered]="false" [nzHoverable]="true">
+                <h4 style="text-align: center; font-weight: bold;">Order Summary</h4>
+                <p>you have {{result.length}} items in your shopping cart</p>
+                <div *ngFor="let item of result">
+                    <nz-divider></nz-divider>
+                    <div class="checkout-summary">
+                        <div>{{item.quantity}} x {{item.name}}</div>
+                        <div>${{item.quantity * item.price}}</div>
+                    </div>
+                </div>
+                <div>
+                    <nz-divider></nz-divider>
+                    <div class="checkout-summary">
+                        <div>Total</div>
+                        <div>${{getTotal()}}</div>
+                    </div>
+                </div>
+            </nz-card>
+        </li>
+
+        <li nz-col [nzXs]="24" [nzMd]="12">
+            <nz-card [nzBordered]="false" [nzHoverable]="true">
+                <h4 style="text-align: center; font-weight: bold;">Details</h4>
+                <form [formGroup]="shippingForm" (ngSubmit)="submitForm()">
+                    <nz-form-item>
+                        <nz-form-control [nzHasFeedback]="true">
+                            <input nz-input formControlName="name" placeholder="Name" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control [nzHasFeedback]="true">
+                            <input nz-input formControlName="address" placeholder="Address" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <div nz-row nzJustify="center">
+                        <button nz-button nzType="primary" type="submit" nz-block>Place Order</button>
+                    </div>
+                </form>
+            </nz-card>
+        </li>
+
+    </ul>
+    <div [ngStyle]="{'display': status}"
+        style="width: 300px; margin: 0 auto; position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);">
+        <nz-alert nzType="success" nzCloseable nzMessage="Order Successfully Placed"  (nzOnClose)="afterClose()"></nz-alert>
+    </div>
+</div>
