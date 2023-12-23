@@ -4,8 +4,8 @@
     </nz-header>
     <nz-layout>
         <nz-sider [ngStyle]="{'display': sidebarDisplay}" [nzCollapsible]="isCollapsible"
-            [nzCollapsedWidth]="collapsedWidth" class="sider" nzTheme="light">
-            <app-sidebar></app-sidebar>
+            [nzCollapsedWidth]="collapsedWidth" [(nzCollapsed)]="isSiderCollapsed" class="sider" nzTheme="light">
+            <app-sidebar [childCollapsed]="isSiderCollapsed"></app-sidebar>
         </nz-sider>
         <nz-content>
             <router-outlet></router-outlet>

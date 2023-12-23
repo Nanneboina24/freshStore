@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { ActivatedRoute } from '@angular/router';
 
@@ -9,7 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   isCollapsible = true;
-  collapsedWidth: number = 53;
+  isSiderCollapsed: boolean = false;
+  collapsedWidth: number = 68;
   sidebarDisplay: any = "block";
 
   constructor(private route: ActivatedRoute, private breakpointObserver: BreakpointObserver) { }
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     // Access query parameters
     this.route.queryParams.subscribe(params => {
-      console.log("home",params);
+      console.log("home", params);
       this.sidebarDisplay = params['sidebarDisplay'];
     });
 
@@ -27,5 +28,11 @@ export class HomeComponent implements OnInit {
         console.log("breakpoint", result)
       });
   }
+
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   if (changes['isSiderCollapsed']) {
+  //     console.log('Sidebar state changed:', this.isSiderCollapsed);
+  //   }
+  // }
 
 }

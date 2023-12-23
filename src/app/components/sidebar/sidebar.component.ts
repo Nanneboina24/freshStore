@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { MainService } from '../../services/main.service';
 import { Router } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -10,21 +10,30 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 })
 export class SidebarComponent implements OnInit {
   store: any = {}
-  padding: string = "48px"; //default
+  item_padding: string = "48px"; //default
+  main_padding: string = "5px"; //default
+  tooltipColor: string = "#e9e995"
+  @Input() childCollapsed!: boolean;
 
   constructor(private router: Router, private mainService: MainService, private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
     this.store = this.mainService.getSidebar();
     console.log(this.store);
+  }
 
-    // Adjust padding based on screen size
-    // this.breakpointObserver.observe([Breakpoints.XSmall])
-    //   .subscribe(result => {
-    //     console.log(result)
-    //     this.padding = result.matches ? "24px" : "48px";
-    //   });
-
+  ngOnChanges(changes: SimpleChanges): void {
+    // Called whenever any input property changes
+    if (changes['childCollapsed']) {
+      if (changes['childCollapsed'].currentValue) {
+        this.item_padding = "24px";
+        this.main_padding = "20px"
+      }
+      else {
+        this.item_padding = "48px";
+        this.main_padding = "5px"
+      }
+    }
   }
 
   getCategoryKeys(): string[] {
