@@ -1,6 +1,17 @@
 .cart-main {
     padding: 20px;
     height: calc(100vh - 64px);
+    overflow: auto;
+}
+
+.cart-main::-webkit-scrollbar {
+    width: 5px;
+    /* Adjust the width as needed */
+}
+
+.cart-main::-webkit-scrollbar-thumb {
+    background-color: var(--c-background-color-card);
+    /* Adjust the color as needed */
 }
 
 nz-card {
@@ -21,7 +32,7 @@ img {
     justify-content: center;
 }
 
-.cart-upper{
+.cart-upper {
     display: flex;
     justify-content: space-between;
 }

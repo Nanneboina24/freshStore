@@ -19,7 +19,7 @@ export class ContentComponent implements OnInit {
   ngOnInit() {
     // Access query parameters
     this.route.queryParams.subscribe(params => {
-      console.log(params);
+      console.log("content",params);
       this.category = params['category'];
       this.itemName = params['itemName'];
 
