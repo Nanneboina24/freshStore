@@ -1,5 +1,5 @@
 .sidebar-content {
-    height: calc(100vh - 64px);
+    height: calc(100vh - 64px - 48px);
     /* Adjust the value accordingly, considering the header height here 64px */
     overflow: auto;
 }
